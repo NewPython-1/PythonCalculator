@@ -34,10 +34,9 @@ def choose_operation():
   return user_choice
 
 
-
 while True:
   
-#calls function on line 32 to get what the user wants
+#calls function choose_operation to get what the user wants to do
   user_choice = choose_operation()
   
 #Makes the choose_operation function loop if user_choice is not equal to a valid option
@@ -49,15 +48,20 @@ while True:
 
 #stops the while loop when user enters 0 as an option for user_choice
   if user_choice == 0:
-     print("")
-     print("Bye, have a good day!")
      break
-
+  
+#makes sure the user enter's a number
+  try:
 #get's the numbers the user wants to use for the calculator
-  x = int(input("First number: "))
-  y = int(input("Second number: "))
+    x = int(input("First number: "))
+    y = int(input("Second number: "))
+  except ValueError:
+    print("Invalid input! Please enter a number.")
+    continue
 
-#the print statment on line 46 and 58 make it easier to read the output of the calculator in my opinion
+    
+
+#using these print functions to make the output look cleaner
   print("")
 
 #using if statments to figure out what the user wants
@@ -71,3 +75,5 @@ while True:
     print(x, " / ", y, " = ", divide_numbers(x, y))
 
   print("")
+
+print("Thank you for useing my calculator!")
