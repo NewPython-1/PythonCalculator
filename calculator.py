@@ -1,37 +1,59 @@
+print("Welcome to my calculator! Pick one of the options below to get started.")
+
 # adds x and y
-def add(x, y):
+def add_numbers(x, y):
     return x + y
 
 #subtracts x and y
-def sub(x, y):
+def subtract_numbers(x, y):
     return x - y
 
 #multiplys x and y
-def mult(x, y):
+def multiply_numbers(x, y):
     return x * y
 
 #divides x and y
-def div(x, y):
+def divide_numbers(x, y):
     if y == 0:
         return ("cannot divide by zero")
     else:
         return x // y
     
-    #get's user input for which kind of basic operation they want
-choice = int(input("pick an option 1: add 2: subtract 3: multiply 4: divide : "))
 
-#get's the numbers for the functions
-x = int(input("Enter the first number for the calculator: "))
-y = int(input("now enter the 2nd number: "))
+while True:
+#asks user what operation they want to do
+  print("Pick an option below.")
+  print("0: stop program")
+  print("1: addition")
+  print("2: subtraction")
+  print("3: multiplication")
+  print("4: division")
+
+#get's user input for which kind of basic operation they want
+  user_choice = int(input("Enter you're choice here: "))
+
+  if user_choice > 4 or user_choice < 0:
+    print("You did not enter a valid option")
+    break
+  elif user_choice == 0:
+     print("Bye, have a good day!")
+     break
+
+#get's the numbers the user wants to use for the calculator
+  x = int(input("First number: "))
+  y = int(input("Second number: "))
+
+#the print statment on line 46 and 58 make it easier to read the output of the calculator in my opinion
+  print("")
 
 #using if statments to figure out what the user wants
-if choice == 1:
-    print(x, " + ", y, " = ", add(x, y))
-elif choice == 2:
-    print(x, " - ", y, " = ", sub(x, y))
-elif choice == 3:
-    print(x, " * ", y, " = ", mult(x, y))
-elif choice == 4:
-    print(x, " / ", y, " = ", div(x, y))
-else:
-    print("you did not enter a correct option")
+  if user_choice == 1:
+    print(x, " + ", y, " = ", add_numbers(x, y))
+  elif user_choice == 2:
+    print(x, " - ", y, " = ", subtract_numbers(x, y))
+  elif user_choice == 3:
+    print(x, " * ", y, " = ", multiply_numbers(x, y))
+  elif user_choice == 4:
+    print(x, " / ", y, " = ", divide_numbers(x, y))
+
+  print("")
