@@ -56,7 +56,9 @@ while True:
     x = int(input("First number: "))
     y = int(input("Second number: "))
   except ValueError:
+    print("")
     print("Invalid input! Please enter a number.")
+    print("")
     continue
 
     
