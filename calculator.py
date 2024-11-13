@@ -20,8 +20,8 @@ def divide_numbers(x, y):
         return x // y
     
 
-while True:
-#asks user what operation they want to do
+def choose_operation():
+  #asks user what operation they want to do
   print("Pick an option below.")
   print("0: stop program")
   print("1: addition")
@@ -31,11 +31,25 @@ while True:
 
 #get's user input for which kind of basic operation they want
   user_choice = int(input("Enter you're choice here: "))
+  return user_choice
 
-  if user_choice > 4 or user_choice < 0:
-    print("You did not enter a valid option")
-    break
-  elif user_choice == 0:
+
+
+while True:
+  
+#calls function on line 32 to get what the user wants
+  user_choice = choose_operation()
+  
+#Makes the choose_operation function loop if user_choice is not equal to a valid option
+  while user_choice > 4 or user_choice < 0:
+     print("")
+     print("You entered an invalid option please pick a valid option.")
+     print("")
+     user_choice = choose_operation()
+
+#stops the while loop when user enters 0 as an option for user_choice
+  if user_choice == 0:
+     print("")
      print("Bye, have a good day!")
      break
 
