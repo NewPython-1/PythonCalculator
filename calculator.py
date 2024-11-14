@@ -18,6 +18,14 @@ def divide_numbers(x, y):
         return ("cannot divide by zero")
     else:
         return x // y
+
+#exponentiation formula
+def number_expo(x, y):
+   return x ** y
+
+#modulus formula
+def number_modulus(x, y):
+   return x % y
     
 
 def choose_operation():
@@ -28,23 +36,29 @@ def choose_operation():
   print("2: subtraction")
   print("3: multiplication")
   print("4: division")
+  print("5: exponentiation")
+  print("6: modulus")
 
-#get's user input for which kind of basic operation they want
-  user_choice = int(input("Enter you're choice here: "))
-  return user_choice
 
+def get_user_choice():
+#gets the number for which operation the user chooses
+  while True:
+    
+    try:
+       user_choice = int(input("Enter choice here: "))
+       if user_choice in [0, 1, 2, 3, 4, 5, 6]:
+          return user_choice
+       else:
+          print("Please pick a valid option.")
+    except ValueError:
+       print("Please enter a number.")
+       
 
 while True:
   
-#calls function choose_operation to get what the user wants to do
-  user_choice = choose_operation()
-  
-#Makes the choose_operation function loop if user_choice is not equal to a valid option
-  while user_choice > 4 or user_choice < 0:
-     print("")
-     print("You entered an invalid option please pick a valid option.")
-     print("")
-     user_choice = choose_operation()
+#calls functions choose_operation and get_user_choice to get what operation the user wants to perform
+  choose_operation()
+  user_choice = get_user_choice()
 
 #stops the while loop when user enters 0 as an option for user_choice
   if user_choice == 0:
@@ -53,6 +67,7 @@ while True:
 #makes sure the user enter's a number
   try:
 #get's the numbers the user wants to use for the calculator
+    print("")
     x = int(input("First number: "))
     y = int(input("Second number: "))
   except ValueError:
@@ -61,7 +76,6 @@ while True:
     print("")
     continue
 
-    
 
 #using these print functions to make the output look cleaner
   print("")
@@ -75,6 +89,10 @@ while True:
     print(x, " * ", y, " = ", multiply_numbers(x, y))
   elif user_choice == 4:
     print(x, " / ", y, " = ", divide_numbers(x, y))
+  elif user_choice == 5:
+     print(x, " ** ", y, " = ", number_expo(x, y))
+  elif user_choice == 6:
+     print(x, " % ", y, " = ", number_modulus(x, y))
 
   print("")
 
